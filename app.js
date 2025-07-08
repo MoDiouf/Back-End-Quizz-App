@@ -1,6 +1,6 @@
-// 📄 app.js
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');  // <-- ajoute ça
 require('dotenv').config();
 
 const userRoutes = require('./routes/userRoutes');
@@ -11,6 +11,8 @@ const connectDB = require('./config/db');
 const app = express();
 
 // Middleware
+app.use(cors());  // <-- active CORS ici
+
 app.use(express.json());
 
 // Routes
